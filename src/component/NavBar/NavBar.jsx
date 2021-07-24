@@ -11,12 +11,31 @@ function NavBar(props) {
         { label: 'Upcoming', onClick: () => console.log('Upcoming') },
     ]
 
+    const styles = {
+        background: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            paddingTop: 35,
+            position: 'absolute',
+            width: '100%'
+        },
+        container: {
+            display: "flex",
+            justifyContent: "space-between",
+            width: 1216,
+        }
+    }
+
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 35 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', width: 1216 }}>
-                <Logo onClick={() => console.log('Home')}></Logo>
+        <div style={styles.background}>
+            <div style={styles.container}>
+                <Logo onClick={() => console.log("Home")}></Logo>
                 <MenuItems items={menuItems} />
-                <SearchBar onChange={value => console.log(value)} name="Dang nguyen" />
+                <SearchBar
+                    onChange={(value) => console.log(value)}
+                    name="Dang nguyen"
+                />
             </div>
         </div>
     );

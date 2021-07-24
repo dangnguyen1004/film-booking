@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 608px;
+    color: white;
+}
+
+.top {
+    font-size: 24px;
+    font-weight: 500;
+    font-style: normal; 
+}
+
+.title {
+    display: flex;
+}
+
+.left {
+    width: 140px;
+    font-weight: lighter;
+    font-style: normal;
+    font-size: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.right {
+    font-size: 60px;
+    font-weight: bold;
+    font-style: normal;
+}
