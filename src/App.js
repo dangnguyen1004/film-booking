@@ -1,4 +1,5 @@
 import './App.css';
+import ButtonBuy from './component/ButtonBuy';
 import Information from './component/Information';
 import LineBreak from './component/LineBreak';
 import MainTitle from './component/MainTitle/MainTitle';
@@ -23,6 +24,7 @@ function App() {
       <StarsBar />
       <LineBreak length={608} />
       <Information film={film}></Information>      
+      <ButtonBuy/>
     </div>
   );
 }
