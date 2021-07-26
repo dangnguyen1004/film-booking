@@ -1,0 +1,11 @@
+.main {
+    background-color: black;
+    height: 5000px;
+    display: flex;
+    justify-content: center;
+}
+
+.mother-container {
+    max-width: 1216px;
+    width: 100%;
+}

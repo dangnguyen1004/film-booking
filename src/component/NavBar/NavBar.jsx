@@ -23,7 +23,8 @@ function NavBar(props) {
         container: {
             display: "flex",
             justifyContent: "space-between",
-            width: 1216,
+            width: '100%',
+            maxWidth: 1216
         }
     }
 

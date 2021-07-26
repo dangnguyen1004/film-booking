@@ -1,9 +1,9 @@
 import React from 'react';
 import './MainTitle.css'
 
-function MainTitle(props) {
+function MainTitle({ ...otherProps }) {
     return (
-        <div className='container'>
+        <div className='container' {...otherProps}>
             <div className='top'>
                 Top
             </div>
