@@ -7,7 +7,7 @@ import Information from '../component/Information'
 import ButtonBuy from '../component/ButtonBuy'
 import MoviesList from '../component/MoviesList/MoviesList'
 import Trailers from '../component/Trailers';
-import './HomeScreen.css'
+import './HomePage.css'
 
 function HomeScreen(props) {
     const [mainFilm, setMainFilm] = useState({

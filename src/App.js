@@ -1,9 +1,10 @@
 import './App.css';
-import HomeScreen from './Screens/HomeScreen';
+import DetailPage from './Screens/DetailPage';
+import HomeScreen from './Screens/HomePage';
 
 function App() {
 	return (
-		<HomeScreen></HomeScreen>
+		<DetailPage></DetailPage>
 	);
 }
 

@@ -42,4 +42,9 @@
   font-weight: bold;
 }
 
+.hidden-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+
 
