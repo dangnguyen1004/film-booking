@@ -1,5 +1,4 @@
 import React from 'react';
-import color from '../../config/color';
 import './MoviesList.css'
 
 function MoviesScrollView({ movies }) {

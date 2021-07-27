@@ -17,8 +17,9 @@ function NavBar(props) {
             flexDirection: 'column',
             alignItems: 'center',
             paddingTop: 35,
-            position: 'absolute',
-            width: '100%'
+            position: 'fixed',
+            width: '100%',
+            zIndex: 10,
         },
         container: {
             display: "flex",

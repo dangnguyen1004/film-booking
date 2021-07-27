@@ -12,6 +12,7 @@ function ButtonBuy({ onClick }) {
                 display: "flex",
                 alignItems: "center",
                 padding: "8px 20px",
+                border: 'none'
             }}
         >
             <BsArrowRight size={14} color={color.black} />
