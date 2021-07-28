@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import InformationDetailSection from '../component/InformationDetailSection';
 import NavBar from '../component/NavBar/NavBar';
+import BuyTicketSection from '../component/BuyTicketSection'
 import './DetailPage.css'
 
 function DetailPage(props) {
@@ -61,6 +62,7 @@ function DetailPage(props) {
             <NavBar></NavBar>
             <div className='mother-container'>
                 <InformationDetailSection film={film} actors={actors}></InformationDetailSection>
+                <BuyTicketSection></BuyTicketSection>
             </div>
         </div>
     );
