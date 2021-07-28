@@ -16,10 +16,20 @@ function InformationDetailSection({ film, actors, ...otherProps }) {
         },
         detailsContainerRight: {
             width: '50%',
+            marginLeft: 130
         },
         mainTitle: {
             fontSize: 60,
             fontWeight: 800,
+        },
+        smallTitle: {
+            fontSize: 24,
+            fontWeight: 600,
+            marginBottom: 27,
+        },
+        description: {
+            fontSize: 15,
+            fontWeight: 400,
         }
     }
 
@@ -32,8 +42,10 @@ function InformationDetailSection({ film, actors, ...otherProps }) {
                 <ListDetailInfo style={{ marginTop: 27 }} film={film}></ListDetailInfo>
             </div>
             <div style={styles.detailsContainerRight}>
-                <div>Starring</div>
+                <div style={styles.smallTitle}>Starring:</div>
                 <ListActors actors={actors}></ListActors>
+                <div style={styles.smallTitle}>Storyline:</div>
+                <div style={styles.description}>{film.description}</div>
             </div>
         </div>
     );

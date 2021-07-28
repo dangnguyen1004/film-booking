@@ -15,7 +15,8 @@ function DetailPage(props) {
         language: 'English',
         subtitle: 'Vietnamese',
         run_time: '90 mins',
-        shows: ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00']
+        shows: ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00'],
+        description: "The main story arc concerns Harry's struggle against Lord Voldemort, a dark wizard who intends to become immortal, overthrow the wizard governing body known as the Ministry of Magic and subjugate all wizards and Muggles (non-magical people)."
     })
 
     const [actors, setACtors] = useState([
