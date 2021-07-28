@@ -1,11 +1,11 @@
 import React from 'react';
 import color from '../config/color';
 
-function LineBreak({ length }) {
+function LineBreak({ length, color = 'white' }) {
     const style = {
         width: length,
         height: 1,
-        backgroundColor: color.white
+        backgroundColor: color
     }
 
     return (

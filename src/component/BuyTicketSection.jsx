@@ -1,4 +1,5 @@
 import React from 'react';
+import Cart from './Cart';
 import DayPicker from './DayPicker';
 import TimePicker from './TimePicker';
 
@@ -37,11 +38,12 @@ function BuyTicketSection(props) {
                 <div style={styles.title}>TIme</div>
                 <TimePicker times={times}></TimePicker>
                 <div style={styles.title}>Tickets</div>
-                {/* order */}
+                <Cart></Cart>
             </div>
             <div style={{width: '50%'}}>
             </div>
         </div>
+
     );
 }
 

@@ -81,7 +81,7 @@ function HomeScreen(props) {
 
     return (
         <div className='main'>
-            <img src="https://picsum.photos/1920/1080" alt="background" style={{ width: '100%', position: 'absolute', zIndex: '0' }} />
+            <img src="https://picsum.photos/1920/1080" alt="background" style={{ width: '100%', position: 'absolute', zIndex: '0', height: 800, objectFit: 'cover' }} />
             <div className='cover-background'></div>
             <NavBar></NavBar>
             <div className='mother-container'>
