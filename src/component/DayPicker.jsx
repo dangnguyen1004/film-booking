@@ -31,7 +31,6 @@ function DayPicker({days}) {
     };
 
 
-
     const [selectedDay, setSelectedDay] = useState();
 
     const handleSelect = (day) => {

@@ -1,5 +1,6 @@
 import React from 'react';
 import DayPicker from './DayPicker';
+import TimePicker from './TimePicker';
 
 function BuyTicketSection(props) {
     const styles = {
@@ -18,6 +19,15 @@ function BuyTicketSection(props) {
         { day: 18, weekday: "THU" },
         { day: 19, weekday: "FRI" },
     ];
+    
+    const times = [
+        {time: '09:00'},
+        {time: '10:15'},
+        {time: '13:40'},
+        {time: '14:20'},
+        {time: '16:00'},
+        {time: '22:15'},
+    ]
 
     return (
         <div style={{display: 'flex', color: 'white', marginTop: 160}}>
@@ -25,7 +35,7 @@ function BuyTicketSection(props) {
                 <div style={styles.title}>Date:</div>
                 <DayPicker days={days}></DayPicker>
                 <div style={styles.title}>TIme</div>
-                {/* pick time */}
+                <TimePicker times={times}></TimePicker>
                 <div style={styles.title}>Tickets</div>
                 {/* order */}
             </div>
