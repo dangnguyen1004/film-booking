@@ -82,7 +82,7 @@ function Cart({ selectedDate: date, selectedTime = 'Time', selectedSeats }) {
                             </tr>
                             <tr>
                                 <td colSpan="5">
-                                    <LineBreak length={483} color={color.lightGrey}></LineBreak>
+                                    <LineBreak length={450} color={color.lightGrey}></LineBreak>
                                 </td>
                             </tr>
                         </React.Fragment>

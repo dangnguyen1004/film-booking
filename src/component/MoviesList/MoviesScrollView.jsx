@@ -6,7 +6,7 @@ function MoviesScrollView({ movies }) {
     return (
         <div className="list-container">
             {movies.map(movie => (
-                <div key={movie.move_title} className='movie'>
+                <div key={movie._id} className='movie'>
                     <img className="movie__img" src={movie.poster} alt="Avatar" />
                     <div className="movie__title">{movie.title}</div>
                 </div>

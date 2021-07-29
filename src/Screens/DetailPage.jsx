@@ -91,7 +91,7 @@ function DetailPage(props) {
             />
             <div className="cover-background"></div>
             <NavBar></NavBar>
-            <div className="mother-container">
+            <div className="detail-page__mother-container">
                 <InformationDetailSection
                     film={film}
                     actors={actors}

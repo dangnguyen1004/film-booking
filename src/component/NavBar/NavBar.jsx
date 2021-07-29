@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from './Logo';
 import MenuItems from './MenuItems';
 import SearchBar from './SearchBar';
+import { Link } from 'react-router-dom'
 
 
 function NavBar(props) {
@@ -32,7 +33,9 @@ function NavBar(props) {
     return (
         <div style={styles.background}>
             <div style={styles.container}>
-                <Logo onClick={() => console.log("Home")}></Logo>
+                <Link style={{textDecoration: 'none'}} to='/home'>
+                    <Logo></Logo>
+                </Link>
                 <MenuItems items={menuItems} />
                 <SearchBar
                     onChange={(value) => console.log(value)}

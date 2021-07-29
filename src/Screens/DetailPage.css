@@ -3,7 +3,6 @@
     justify-content: center;
     z-index: -10;
     background-color: black;
-    height: 5000px;
 }
 
 .cover-background {
@@ -13,7 +12,7 @@
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 77.42%, #000000 89.33%, #000000 100%);
 }
 
-.mother-container {
+.detail-page__mother-container {
     max-width: 1216px;
     width: 100%;
     z-index: 1;

@@ -9,7 +9,7 @@ import MoviesList from '../component/MoviesList/MoviesList'
 import Trailers from '../component/Trailers';
 import './HomePage.css'
 
-function HomeScreen(props) {
+function HomeScreen({history}) {
     const [mainFilm, setMainFilm] = useState({
         year: 2021,
         genres: ['Adventure', 'Fantasy', 'Comedy'],
@@ -22,54 +22,67 @@ function HomeScreen(props) {
 
     const [nowPlayings, setNowPlayings] = useState([
         {
+            _id: 1,
             title: "Fast and furious 9: The fast saga",
             poster: "https://picsum.photos/170/251"
         },
         {
+            _id: 2,
             title: "Fast and furious 9: The fast saga",
             poster: "https://picsum.photos/170/251"
         },
         {
+            _id: 3,
             title: "Fast and furious 9: The fast saga",
             poster: "https://picsum.photos/170/251"
         },
         {
+            _id: 4,
             title: "Fast and furious 9: The fast saga",
             poster: "https://picsum.photos/170/251"
         },
         {
+            _id: 5,
             title: "Fast and furious 9: The fast saga",
             poster: "https://picsum.photos/170/251"
         },
         {
+            _id: 6,
             title: "Fast and furious 9: The fast saga",
             poster: "https://picsum.photos/170/251"
         },
         {
+            _id: 7,
             title: "Fast and furious 9: The fast saga",
             poster: "https://picsum.photos/170/251"
         },
         {
+            _id: 8,
             title: "Fast and furious 9: The fast saga",
             poster: "https://picsum.photos/170/251"
         },
         {
+            _id: 9,
             title: "Fast and furious 9: The fast saga",
             poster: "https://picsum.photos/170/251"
         },
         {
+            _id: 10,
             title: "Fast and furious 9: The fast saga",
             poster: "https://picsum.photos/170/251"
         },
         {
+            _id: 11,
             title: "Fast and furious 9: The fast saga",
             poster: "https://picsum.photos/170/251"
         },
         {
+            _id: 12,
             title: "Fast and furious 9: The fast saga",
             poster: "https://picsum.photos/170/251"
         },
         {
+            _id: 13,
             title: "Fast and furious 9: The fast saga",
             poster: "https://picsum.photos/170/251"
         },
@@ -77,6 +90,7 @@ function HomeScreen(props) {
 
     const handleBuy = () => {
         console.log('Buy ticket')
+        history.push('/films/1')
     }
 
     return (
@@ -96,7 +110,7 @@ function HomeScreen(props) {
                     </div>
 
                     <div className="information-container__right">
-                        <Trailers style={{marginTop: 82, marginLeft: 122}}></Trailers>
+                        {/* <Trailers style={{marginTop: 82, marginLeft: 122}}></Trailers> */}
                     </div>
                 </div>
 
