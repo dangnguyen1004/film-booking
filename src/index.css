@@ -38,3 +38,27 @@ code {
   src: local("Barlow"),
     url(./fonts/barlow/Barlow-SemiBold.ttf) format("truetype");
 }
+
+
+::-webkit-scrollbar {
+	width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(to right, var(--scroll-track-color) 0%, var(--scroll-track-color) 30%, var(--scroll-color) 60%, var(--body-bg-color) 61%, var(--body-bg-color) 100%);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--scroll-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}

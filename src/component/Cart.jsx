@@ -59,45 +59,47 @@ function Cart(props) {
                 <span style={styles.datetime}><MdDateRange size={15} /> <span>18.07.2021</span></span>
             </div>
             <table style={{ borderCollapse: 'collapse', width: '100%' }}>
-                <tr style={styles.headerContainer}>
-                    <td style={styles.header}>No</td>
-                    <td style={styles.header}>Hall</td>
-                    <td style={styles.header}>Row</td>
-                    <td style={styles.header}>Seat</td>
-                    <td style={styles.header}>Price</td>
-                </tr>
-                <tr>
-                    <td style={styles.column}>2221</td>
-                    <td style={styles.column}>04</td>
-                    <td style={styles.column}>C</td>
-                    <td style={styles.column}>09</td>
-                    <td style={styles.column}>110.000vnd</td>
-                </tr>
-                <tr>
-                    <td colspan="5">
-                        <LineBreak length={483} color={color.lightGrey}></LineBreak>
-                    </td>
-                </tr>
-                <tr>
-                    <td style={styles.column}>2221</td>
-                    <td style={styles.column}>04</td>
-                    <td style={styles.column}>C</td>
-                    <td style={styles.column}>09</td>
-                    <td style={styles.column}>110.000vnd</td>
-                </tr>
-                <tr>
-                    <td colspan="5">
-                        <LineBreak length={483} color={color.lightGrey}></LineBreak>
-                    </td>
-                </tr>
+                <tbody>
+                    <tr style={styles.headerContainer}>
+                        <td style={styles.header}>No</td>
+                        <td style={styles.header}>Hall</td>
+                        <td style={styles.header}>Row</td>
+                        <td style={styles.header}>Seat</td>
+                        <td style={styles.header}>Price</td>
+                    </tr>
+                    <tr>
+                        <td style={styles.column}>2221</td>
+                        <td style={styles.column}>04</td>
+                        <td style={styles.column}>C</td>
+                        <td style={styles.column}>09</td>
+                        <td style={styles.column}>110.000vnd</td>
+                    </tr>
+                    <tr>
+                        <td colSpan="5">
+                            <LineBreak length={483} color={color.lightGrey}></LineBreak>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style={styles.column}>2221</td>
+                        <td style={styles.column}>04</td>
+                        <td style={styles.column}>C</td>
+                        <td style={styles.column}>09</td>
+                        <td style={styles.column}>110.000vnd</td>
+                    </tr>
+                    <tr>
+                        <td colSpan="5">
+                            <LineBreak length={483} color={color.lightGrey}></LineBreak>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
 
-            <div style={{display: 'flex'}}>
-                <div style={{width: '40%', display: 'flex', alignItems: 'center', height: 110}}>
-                    <Button variant="contained" size="large" color={color.white}>Buy tickets</Button>
+            <div style={{ display: 'flex' }}>
+                <div style={{ width: '40%', display: 'flex', alignItems: 'center', height: 110 }}>
+                    <Button variant="contained" size="large">Buy tickets</Button>
                 </div>
-                <div style={{width: '60%', display: 'flex', alignItems: 'center', justifyContent: 'flex-end'}}>
-                    <span style={{fontSize: 20, fontWeight: 500}}>Grand total:</span> <span style={{fontSize: 20, fontWeight: 500, color: color.primary, marginLeft: 10,}}>220.000vnd</span>
+                <div style={{ width: '60%', display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+                    <span style={{ fontSize: 20, fontWeight: 500 }}>Grand total:</span> <span style={{ fontSize: 20, fontWeight: 500, color: color.primary, marginLeft: 10, }}>220.000vnd</span>
                 </div>
             </div>
 

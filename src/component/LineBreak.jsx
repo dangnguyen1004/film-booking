@@ -1,5 +1,4 @@
 import React from 'react';
-import color from '../config/color';
 
 function LineBreak({ length, color = 'white' }) {
     const style = {

@@ -1,6 +1,7 @@
 import React from 'react';
 import Cart from './Cart';
 import DayPicker from './DayPicker';
+import SeatPicker from './SeatPicker';
 import TimePicker from './TimePicker';
 
 function BuyTicketSection(props) {
@@ -41,6 +42,7 @@ function BuyTicketSection(props) {
                 <Cart></Cart>
             </div>
             <div style={{width: '50%'}}>
+                <SeatPicker></SeatPicker>
             </div>
         </div>
 

@@ -22,34 +22,42 @@ function DetailPage(props) {
 
     const [actors, setACtors] = useState([
         {
+            _id: 1,
             name: 'Joe Smiling',
             avatar: 'https://picsum.photos/100/100'
         },
         {
+            _id: 2,
             name: 'Joe Smiling',
             avatar: 'https://picsum.photos/100/100'
         },
         {
+            _id: 3,
             name: 'Joe Smiling',
             avatar: 'https://picsum.photos/100/100'
         },
         {
+            _id: 4,
             name: 'Joe Smiling',
             avatar: 'https://picsum.photos/100/100'
         },
         {
+            _id: 5,
             name: 'Joe Smiling',
             avatar: 'https://picsum.photos/100/100'
         },
         {
+            _id: 6,
             name: 'Joe Smiling',
             avatar: 'https://picsum.photos/100/100'
         },
         {
+            _id: 7,
             name: 'Joe Smiling',
             avatar: 'https://picsum.photos/100/100'
         },
         {
+            _id: 8,
             name: 'Joe Smiling',
             avatar: 'https://picsum.photos/100/100'
         },

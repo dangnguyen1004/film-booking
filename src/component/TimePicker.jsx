@@ -29,6 +29,7 @@ function TimePicker({ times }) {
         <div style={{ display: "flex" }}>
             {times.map((time) => (
                 <div
+                    key={time.time}
                     onClick={() => handleSelect(time.time)}
                     style={
                         selectedTime && selectedTime === time.time
