@@ -3,7 +3,7 @@ import WeekendIcon from '@material-ui/icons/Weekend';
 import { useState } from 'react';
 import color from '../config/color';
 
-function SeatPicker(props) {
+function SeatPicker({ onSelectSeats }) {
     const styles = {
         container: {
             display: 'flex',
@@ -29,19 +29,19 @@ function SeatPicker(props) {
         ['G1', 'G2', 'G3', 'G4', 'G5', 'G6', 'G7', 'G8', 'G9', 'G10', 'G11', 'G12', 'G14', 'G15', 'G16'],
         ['H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'H7', 'H8', 'H9', 'H10', 'H11', 'H12', 'H14', 'H15', 'H16'],
     ]
-
     const disabledSeats = ['B4', 'B5', 'B6', 'B7', 'B8', 'D4', 'D5', 'D6', 'D7', 'D8', 'E3', 'F9']
-
     const [selectedSeats, setSelectedSeats] = useState([])
 
     const handleSelect = (seat) => {
         if (!selectedSeats.includes(seat)) {
             const newSeats = [...selectedSeats, seat]
             setSelectedSeats(newSeats)
+            onSelectSeats(newSeats)
         }
         else {
             const newSeats = selectedSeats.filter(s => s !== seat)
             setSelectedSeats(newSeats)
+            onSelectSeats(newSeats)
         }
     }
 

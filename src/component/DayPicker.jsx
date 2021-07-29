@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import color from "../config/color";
 
-function DayPicker({days}) {
+function DayPicker({days, onSelectDate}) {
     const styles = {
         cardContainer: {
             borderRadius: 5,
@@ -30,11 +30,10 @@ function DayPicker({days}) {
         }
     };
 
-
     const [selectedDay, setSelectedDay] = useState();
-
     const handleSelect = (day) => {
         setSelectedDay(day);
+        onSelectDate(day)
     };
 
     return (
@@ -42,9 +41,9 @@ function DayPicker({days}) {
             {days.map((day) => (
                 <div
                     key={day.day}
-                    onClick={() => handleSelect(day.day)}
+                    onClick={() => handleSelect(day)}
                     style={
-                        selectedDay && selectedDay === day.day
+                        selectedDay && selectedDay.day === day.day
                             ? { ...styles.cardContainer, ...styles.isSelect }
                             : styles.cardContainer
                     }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import color from "../config/color";
 
-function TimePicker({ times }) {
+function TimePicker({ times, onSelectTime }) {
     const styles = {
         cardContainer: {
             display: "flex",
@@ -23,21 +23,24 @@ function TimePicker({ times }) {
 
     const [selectedTime, setSelectedTime] = useState();
 
-    const handleSelect = (time) => setSelectedTime(time);
+    const handleSelect = (time) => {
+        onSelectTime(time);
+        setSelectedTime(time)
+    }
 
     return (
         <div style={{ display: "flex" }}>
             {times.map((time) => (
                 <div
-                    key={time.time}
-                    onClick={() => handleSelect(time.time)}
+                    key={time}
+                    onClick={() => handleSelect(time)}
                     style={
-                        selectedTime && selectedTime === time.time
+                        selectedTime && selectedTime === time
                             ? { ...styles.cardContainer, ...styles.isSelected }
                             : styles.cardContainer
                     }
                 >
-                    {time.time}
+                    {time}
                 </div>
             ))}
         </div>

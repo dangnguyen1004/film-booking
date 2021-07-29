@@ -4,7 +4,7 @@ import DayPicker from './DayPicker';
 import SeatPicker from './SeatPicker';
 import TimePicker from './TimePicker';
 
-function BuyTicketSection(props) {
+function BuyTicketSection({ times, onSelectDate, onSelectTime, onSelectSeats, ...otherProps }) {
     const styles = {
         title: {
             fontSize: 15,
@@ -15,37 +15,27 @@ function BuyTicketSection(props) {
     }
 
     const days = [
-        { day: 15, weekday: "MON" },
-        { day: 16, weekday: "TUE" },
-        { day: 17, weekday: "WED" },
-        { day: 18, weekday: "THU" },
-        { day: 19, weekday: "FRI" },
+        { day: 15, weekday: "MON", month: '07', year: 2021 },
+        { day: 16, weekday: "TUE", month: '07', year: 2021 },
+        { day: 17, weekday: "WED", month: '07', year: 2021 },
+        { day: 18, weekday: "THU", month: '07', year: 2021 },
+        { day: 19, weekday: "FRI", month: '07', year: 2021 },
     ];
-    
-    const times = [
-        {time: '09:00'},
-        {time: '10:15'},
-        {time: '13:40'},
-        {time: '14:20'},
-        {time: '16:00'},
-        {time: '22:15'},
-    ]
 
     return (
-        <div style={{display: 'flex', color: 'white', marginTop: 160}}>
-            <div style={{width: '50%'}}>
+        <div style={{ display: "flex", color: "white", marginTop: 160 }}>
+            <div style={{ width: "50%" }}>
                 <div style={styles.title}>Date:</div>
-                <DayPicker days={days}></DayPicker>
+                <DayPicker days={days} onSelectDate={onSelectDate}></DayPicker>
                 <div style={styles.title}>TIme</div>
-                <TimePicker times={times}></TimePicker>
+                <TimePicker times={times} onSelectTime={onSelectTime}></TimePicker>
                 <div style={styles.title}>Tickets</div>
-                <Cart></Cart>
+                <Cart {...otherProps}></Cart>
             </div>
-            <div style={{width: '50%'}}>
-                <SeatPicker></SeatPicker>
+            <div style={{ width: "50%" }}>
+                <SeatPicker onSelectSeats={onSelectSeats}></SeatPicker>
             </div>
         </div>
-
     );
 }
 

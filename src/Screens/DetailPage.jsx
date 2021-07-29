@@ -16,10 +16,8 @@ function DetailPage(props) {
         language: 'English',
         subtitle: 'Vietnamese',
         run_time: '90 mins',
-        shows: ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00'],
         description: "The main story arc concerns Harry's struggle against Lord Voldemort, a dark wizard who intends to become immortal, overthrow the wizard governing body known as the Ministry of Magic and subjugate all wizards and Muggles (non-magical people)."
     })
-
     const [actors, setACtors] = useState([
         {
             _id: 1,
@@ -62,15 +60,51 @@ function DetailPage(props) {
             avatar: 'https://picsum.photos/100/100'
         },
     ])
+    const [times, setTimes] = useState(['09:00', '10:00', '11:00', '12:00', '13:00', '14:00'])
+    const [selectedDate, setSelectedDate] = useState()
+    const [selectedSeats, setSelectedSeats] = useState([])
+    const [selectedTime, setSelectedTime] = useState()
+
+    const handleSelectDate = (date) => {
+        setSelectedDate(date)
+    }
+    const handleSelectSeats = (seats) => {
+        setSelectedSeats(seats)
+    }
+
+    const handleSelectTime = (time) => {
+        setSelectedTime(time)
+    }
 
     return (
         <div className="main">
-            <img src="https://picsum.photos/1920/1080" alt="background" style={{ width: '100%', position: 'absolute', zIndex: '0', height: 800, objectFit: 'cover' }} />
-            <div className='cover-background'></div>
+            <img
+                src="https://picsum.photos/1920/1080"
+                alt="background"
+                style={{
+                    width: "100%",
+                    position: "absolute",
+                    zIndex: "0",
+                    height: 800,
+                    objectFit: "cover",
+                }}
+            />
+            <div className="cover-background"></div>
             <NavBar></NavBar>
-            <div className='mother-container'>
-                <InformationDetailSection film={film} actors={actors}></InformationDetailSection>
-                <BuyTicketSection></BuyTicketSection>
+            <div className="mother-container">
+                <InformationDetailSection
+                    film={film}
+                    actors={actors}
+                ></InformationDetailSection>
+                <BuyTicketSection
+                    times={times}
+                    onSelectDate={handleSelectDate}
+                    onSelectSeats={handleSelectSeats}
+                    onSelectTime={handleSelectTime}
+                    selectedDate={selectedDate}
+                    selectedTime={selectedTime}
+                    selectedSeats={selectedSeats}
+                ></BuyTicketSection>
             </div>
         </div>
     );
