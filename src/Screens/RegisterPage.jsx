@@ -1,13 +1,11 @@
-import React from "react";
+import React from 'react';
 import Input from "../component/Input";
 import NavBar from "../component/NavBar/NavBar";
 import color from "../config/color";
 import Joi from "joi";
 import { useState } from "react";
 
-import './Login.css'
-
-function LoginPage({ history }) {
+function RegisterPage({history}) {
     const styles = {
         container: {
             display: "flex",
@@ -24,11 +22,13 @@ function LoginPage({ history }) {
 
     const [user, setUser] = useState({
         email: "",
+        name: "",
         password: "",
     });
     const [errors, setErrors] = useState();
     const schema = Joi.object({
         email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required().label("Email"),
+        name: Joi.string().required().label('Name'),
         password: Joi.string().required().label("First Name")
     });
 
@@ -77,6 +77,13 @@ function LoginPage({ history }) {
                         user={user}
                     />
                     <Input
+                        name="name"
+                        label="Name"
+                        onChange={handleChange}
+                        errors={errors}
+                        user={user}
+                    />
+                    <Input
                         name="password"
                         label="Password"
                         onChange={handleChange}
@@ -84,12 +91,12 @@ function LoginPage({ history }) {
                         user={user}
                         type='password'
                     />
-                    <button className='btn-login'>Login</button>
+                    <button className='btn-login'>Register</button>
                     <button
                         className="btn-back"
-                        onClick={() => history.push("/register")}
+                        onClick={() => history.push("/home")}
                     >
-                        Register
+                        Back
                     </button>
                 </form>
             </div>
@@ -97,4 +104,4 @@ function LoginPage({ history }) {
     );
 }
 
-export default LoginPage;
+export default RegisterPage;

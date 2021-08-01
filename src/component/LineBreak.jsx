@@ -1,6 +1,6 @@
 import React from 'react';
 
-function LineBreak({ length, color = 'white' }) {
+function LineBreak({ length, color = 'white', }) {
     const style = {
         width: length,
         height: 1,
