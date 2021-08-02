@@ -6,18 +6,19 @@ function FormInput({ label, onChange, type = "text", data, name, errors }) {
         container: {
             display: "flex",
             alignItems: "center",
+            marginTop: 30,
         },
         label: {
-            flexGrow: 1,
+            width: '33.33%',
             fontSize: 15,
             fontWeight: 600,
         },
         inputContainer: {
-            flexGrow: 2,
+            width: '66.67%',
         },
         input: {
             width: "100%",
-            height: 30,
+            height: 35,
             backgroundColor: color.black,
             border: "1px solid white",
             color: color.white,
