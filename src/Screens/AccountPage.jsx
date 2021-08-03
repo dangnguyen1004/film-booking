@@ -27,7 +27,8 @@ function AccountPage(props) {
         },
         info: {
             display: "flex",
-            marginBottom: 10,
+            borderBottom: '1px solid #444444',
+            paddingBottom: 20,
         },
         nameContainer: {
             flexGrow: 2,
@@ -45,6 +46,12 @@ function AccountPage(props) {
         yourTickets: {
             width: "50%",
             paddingLeft: 50,
+            height: 700,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 80,  
+            overflow: 'scroll',
+            paddingBottom: 300,              
         },
     };
 
@@ -75,7 +82,7 @@ function AccountPage(props) {
     };
 
     return (
-        <div className="main" style={{ height: "100vh", overflow: "hidden" }}>
+        <div className="main" style={{ height: "100vh", overflow: "hidden", zIndex: -5, }}>
             <NavBar></NavBar>
 
             <div style={styles.container}>
@@ -95,7 +102,6 @@ function AccountPage(props) {
                             <BiLogOut onClick={handleSignOut} size={40}></BiLogOut>
                         </div>
                     </div>
-                    <LineBreak length={568} color={color.lightGrey}></LineBreak>
                     <div style={styles.form}>
                         <FormInput
                             onChange={handleChange}
@@ -129,6 +135,11 @@ function AccountPage(props) {
                     </Button>
                 </div>
                 <div style={styles.yourTickets}>
+                    <Ticket></Ticket>
+                    <Ticket></Ticket>
+                    <Ticket></Ticket>
+                    <Ticket></Ticket>
+                    <Ticket></Ticket>
                     <Ticket></Ticket>
                 </div>
             </div>
