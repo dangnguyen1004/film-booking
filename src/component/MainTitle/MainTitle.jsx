@@ -1,7 +1,7 @@
 import React from 'react';
 import './MainTitle.css'
 
-function MainTitle({ ...otherProps }) {
+function MainTitle({title, ...otherProps }) {
     return (
         <div className='container' {...otherProps}>
             <div className='top'>
@@ -12,7 +12,7 @@ function MainTitle({ ...otherProps }) {
                     01
                 </div>
                 <div className='right'>
-                    Harry Potter: Half-Blood Prince
+                    {title}
                 </div>
             </div>
         </div>

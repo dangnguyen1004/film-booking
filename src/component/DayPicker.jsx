@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import color from "../config/color";
 
 function DayPicker({days, onSelectDate}) {
+
     const styles = {
         cardContainer: {
             borderRadius: 5,
@@ -49,7 +50,7 @@ function DayPicker({days, onSelectDate}) {
                     }
                 >
                     <div style={styles.day}>{day.day}</div>
-                    <div style={styles.weekday}>{day.weekday}</div>
+                    <div style={styles.weekday}>{day.month}</div>
                 </div>
             ))}
         </div>

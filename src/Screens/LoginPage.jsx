@@ -4,8 +4,10 @@ import NavBar from "../component/NavBar/NavBar";
 import color from "../config/color";
 import Joi from "joi";
 import { useState } from "react";
+import { getCurrentUser, login } from '../services/authService'
 
 import './Login.css'
+import { useEffect } from "react";
 
 function LoginPage({ history }) {
     const styles = {
@@ -32,8 +34,9 @@ function LoginPage({ history }) {
         password: Joi.string().required().label("First Name")
     });
 
-    const doSubmit = () => {
+    const doSubmit = async () => {
         console.log(user);
+        await login(user.email, user.password)
     };
 
     const handleSubmit = (e) => {
@@ -64,9 +67,21 @@ function LoginPage({ history }) {
         setUser(newUser);
     };
 
+    const getUser = async () => {
+        const result = await getCurrentUser()
+        if (result) {
+            history.goBack()
+        }
+    }
+
+    useEffect(() => {
+        getUser()
+    }, [])
+
+
     return (
         <div style={styles.container}>
-            <NavBar></NavBar>
+            <NavBar history={history}></NavBar>
             <div style={styles.form}>
                 <form onSubmit={handleSubmit}>
                     <Input

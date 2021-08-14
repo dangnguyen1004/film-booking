@@ -4,6 +4,8 @@ import NavBar from "../component/NavBar/NavBar";
 import color from "../config/color";
 import Joi from "joi";
 import { useState } from "react";
+import {register, login, getCurrentUser} from '../services/authService'
+import { useEffect } from 'react';
 
 function RegisterPage({history}) {
     const styles = {
@@ -25,6 +27,7 @@ function RegisterPage({history}) {
         name: "",
         password: "",
     });
+
     const [errors, setErrors] = useState();
     const schema = Joi.object({
         email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required().label("Email"),
@@ -32,8 +35,19 @@ function RegisterPage({history}) {
         password: Joi.string().required().label("First Name")
     });
 
-    const doSubmit = () => {
-        console.log(user);
+    const doSubmit = async () => {
+        const {data: newUser} = await register({
+            email: user.email,
+            name: user.name,
+            password: user.password,
+            gender: 'Male',
+            phone: '0123456789'
+        })
+        if (newUser.user_id){
+            login(user.email, user.password)
+            history.push('/home')
+        }
+        
     };
 
     const handleSubmit = (e) => {
@@ -64,9 +78,20 @@ function RegisterPage({history}) {
         setUser(newUser);
     };
 
+    const getUser = async () => {
+        const result = await getCurrentUser()
+        if (result) {
+            history.push('/home')
+        }
+    }
+
+    useEffect(() => {
+        getUser()
+    }, [])
+
     return (
         <div style={styles.container}>
-            <NavBar></NavBar>
+            <NavBar history={history}></NavBar>
             <div style={styles.form}>
                 <form onSubmit={handleSubmit}>
                     <Input

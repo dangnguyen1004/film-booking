@@ -5,7 +5,7 @@ import { MdDateRange } from 'react-icons/md'
 import LineBreak from './LineBreak'
 import Button from '@material-ui/core/Button';
 
-function Cart({ selectedDate: date, selectedTime = 'Time', selectedSeats }) {
+function Cart({ onBuy, selectedDate: date, selectedTime = 'Time', selectedSeats }) {
     const styles = {
         container: {
             width: 483,
@@ -99,7 +99,7 @@ function Cart({ selectedDate: date, selectedTime = 'Time', selectedSeats }) {
                         height: 80,
                     }}
                 >
-                    <Button variant="contained" size="large">
+                    <Button variant="contained" size="large" onClick={onBuy}>
                         Buy tickets
                     </Button>
                 </div>

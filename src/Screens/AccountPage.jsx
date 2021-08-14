@@ -9,8 +9,12 @@ import { useState } from "react";
 import FormRadio from "../component/FormRadio";
 import Button from "@material-ui/core/Button";
 import Ticket from "../component/Ticket";
+import { logout } from '../services/authService'
+import { useEffect } from "react";
+import { getCurrentUser } from '../services/authService'
+import { getTickets } from "../services/ticketsService";
 
-function AccountPage(props) {
+function AccountPage({ history }) {
     const styles = {
         container: {
             width: "100%",
@@ -49,11 +53,13 @@ function AccountPage(props) {
             height: 700,
             display: 'flex',
             flexDirection: 'column',
-            gap: 80,  
+            gap: 80,
             overflow: 'scroll',
-            paddingBottom: 300,              
+            paddingBottom: 300,
         },
     };
+
+    const [tickets, setTickets] = useState([])
 
     const [user, setUser] = useState({
         name: "",
@@ -65,6 +71,7 @@ function AccountPage(props) {
 
     const handleSignOut = () => {
         console.log("sign out");
+        logout()
     };
 
     const handleChange = ({ target }) => {
@@ -81,9 +88,28 @@ function AccountPage(props) {
         console.log(user);
     };
 
+    const getData = async () => {
+        const result = await getCurrentUser()
+        if (result){
+            setUser(result.data)
+            const tickets = await getTickets(result.data.id)
+            if (tickets){
+                setTickets(tickets.data)
+                console.log(tickets.data)
+            }
+            return
+        }
+        history.push('/login')
+    }
+
+
+    useEffect(() => {
+        getData()
+    }, [])
+
     return (
         <div className="main" style={{ height: "100vh", overflow: "hidden", zIndex: -5, }}>
-            <NavBar></NavBar>
+            <NavBar history={history}></NavBar>
 
             <div style={styles.container}>
                 <div style={styles.infoContainer}>
@@ -92,14 +118,14 @@ function AccountPage(props) {
                             <VscAccount size={62}></VscAccount>
                         </div>
                         <div style={styles.nameContainer}>
-                            <div style={styles.name}>Dang Nguyen</div>
+                            <div style={styles.name}>{user ? user.name : ""}</div>
                             <div style={{ fontSize: 15, fontWeight: 300 }}>
-                                <span>10 tickets purchases</span>
+                                <span>{tickets.length} tickets purchases</span>
                                 <span style={{ marginLeft: 10 }}>Gold member</span>
                             </div>
                         </div>
                         <div style={styles.signOut}>
-                            <BiLogOut onClick={handleSignOut} size={40}></BiLogOut>
+                            <BiLogOut style={{ cursor: 'pointer' }} onClick={handleSignOut} size={40}></BiLogOut>
                         </div>
                     </div>
                     <div style={styles.form}>
@@ -130,17 +156,11 @@ function AccountPage(props) {
                             user={user}
                         ></FormRadio>
                     </div>
-                    <Button variant="contained" size="medium" onClick={handleUpdate}>
-                        Buy tickets
-                    </Button>
                 </div>
                 <div style={styles.yourTickets}>
-                    <Ticket></Ticket>
-                    <Ticket></Ticket>
-                    <Ticket></Ticket>
-                    <Ticket></Ticket>
-                    <Ticket></Ticket>
-                    <Ticket></Ticket>
+                    {tickets.map(ticket => (
+                        <Ticket key={ticket.id} ticket={ticket}></Ticket>
+                    ))}
                 </div>
             </div>
         </div>

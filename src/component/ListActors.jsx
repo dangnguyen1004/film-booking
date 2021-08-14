@@ -34,7 +34,7 @@ function ListActors({ actors }) {
         <div style={{width: 475}}>
             <div style={styles.actorsContainer} className="hidden-scrollbar">
                 {actors.map((actor) => (
-                    <div key={actor._id} style={styles.actor}>
+                    <div key={actor.id} style={styles.actor}>
                         <img style={styles.avatar} src={actor.avatar} alt="avatar" />
                         <div style={styles.name}>{actor.name}</div>
                     </div>

@@ -37,7 +37,7 @@ function InformationDetailSection({ film, actors, ...otherProps }) {
         <div style={styles.detailsContainer} {...otherProps}>
             <div style={styles.detailsContainerLeft}>
                 <div style={styles.mainTitle}>
-                    Harry Potter: Half-Blood Prince
+                    {film.title}
                 </div>
                 <ListDetailInfo style={{ marginTop: 27 }} film={film}></ListDetailInfo>
             </div>

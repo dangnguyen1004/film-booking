@@ -1,8 +1,11 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { BiTimeFive } from 'react-icons/bi'
 import { MdDateRange } from 'react-icons/md'
 import color from '../config/color';
 import LineBreak from './LineBreak';
+import { getSeats } from '../services/seatsService'
+import { useState } from 'react';
 
 function Ticket({ ticket }) {
     const styles = {
@@ -61,6 +64,17 @@ function Ticket({ ticket }) {
         }
     }
 
+    const [seats, setSeats] = useState([])
+    const getSeatsData = async () => {
+        const { data } = await getSeats(ticket.id)
+        setSeats(data)
+        console.log(data)
+    }
+
+    useEffect(() => {
+        getSeatsData()
+    }, [])
+
     return (
         <div style={styles.container}>
             <img src="https://picsum.photos/600/400" alt="ticket img" style={styles.background} />
@@ -68,17 +82,17 @@ function Ticket({ ticket }) {
             <div style={styles.content}>
 
                 <div style={styles.title}>
-                    Harry Potter: Half-Blood Prince
+                    {ticket.show.film.title}
                 </div>
 
                 <div style={styles.datetimeContainer}>
                     <div style={styles.datetime}>
-                        <BiTimeFive size={15} /> <span>18:30</span>
+                        <BiTimeFive size={15} /> <span>{ticket.show.begin_time.substring(0, 5)}</span>
                     </div>
                     <div style={styles.datetime}>
                         <MdDateRange size={15} />{" "}
                         <span>
-                            15.07.2021
+                            {ticket.show.date}
                         </span>
                     </div>
                 </div>
@@ -91,18 +105,22 @@ function Ticket({ ticket }) {
                             <td style={styles.header}>Seat</td>
                             <td style={styles.header}>Price</td>
                         </tr>
-                        <React.Fragment>
-                            <tr>
-                                <td style={styles.column}>2221</td>
-                                <td style={styles.column}>04</td>
-                                <td style={styles.column}>A13</td>
-                                <td style={styles.column}>110.000vnd</td>
-                            </tr>
-                            <tr>
-                                <td colSpan="5" style={{borderBottom: '1px solid #444444'}}>
-                                </td>
-                            </tr>
-                        </React.Fragment>
+                        {seats.map(s => (
+                            <React.Fragment key={s.id}>
+                                <tr>
+                                    <td style={styles.column}>{s.id}</td>
+                                    <td style={styles.column}>{ticket.show.hall.name}</td>
+                                    <td style={styles.column}>{`${s.row}${s.seat_number}`}</td>
+                                    <td style={styles.column}>{`${s.price}.000 vnd`}</td>
+                                </tr>
+                                <tr>
+                                    <td colSpan="5" style={{ borderBottom: '1px solid #444444' }}>
+                                    </td>
+                                </tr>
+                            </React.Fragment>
+
+                        ))}
+
                     </tbody>
                 </table>
 
@@ -111,7 +129,7 @@ function Ticket({ ticket }) {
                         Use QR code to pre-show ticket
                     </div>
                     <div>
-                        <img style={{width: 90, height: 90,}} src="https://picsum.photos/100/100" alt="QR code" />
+                        <img style={{ width: 90, height: 90, }} src="https://cdn.printgo.vn/uploads/media/790919/tao-ma-qr-code-san-pham-1_1620927223.jpg" alt="QR code" />
                     </div>
                 </div>
             </div>

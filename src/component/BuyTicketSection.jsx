@@ -4,7 +4,7 @@ import DayPicker from './DayPicker';
 import SeatPicker from './SeatPicker';
 import TimePicker from './TimePicker';
 
-function BuyTicketSection({ times, onSelectDate, onSelectTime, onSelectSeats, ...otherProps }) {
+function BuyTicketSection({ days, times, onSelectDate, onSelectTime, onSelectSeats, ...otherProps }) {
     const styles = {
         title: {
             fontSize: 15,
@@ -14,7 +14,7 @@ function BuyTicketSection({ times, onSelectDate, onSelectTime, onSelectSeats, ..
         }
     }
 
-    const days = [
+    const days_fake = [
         { day: 15, weekday: "MON", month: '07', year: 2021 },
         { day: 16, weekday: "TUE", month: '07', year: 2021 },
         { day: 17, weekday: "WED", month: '07', year: 2021 },

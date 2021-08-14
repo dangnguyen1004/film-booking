@@ -6,8 +6,11 @@ import HomePage from './Screens/HomePage'
 import LoginPage from './Screens/LoginPage';
 import RegisterPage from './Screens/RegisterPage';
 import AccountPage from './Screens/AccountPage';
+import { useEffect, useState } from 'react';
+import {getCurrentUser} from './services/authService'
 
 function App() {
+
 	return (
 		<div>
 			<Switch>
